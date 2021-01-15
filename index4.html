@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Vue Js Intro 2-3</title>
+	<title>Vue Js Intro 4 - Computed Properties</title>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
 	<div id="app">
-		<ul>
-			<li v-for="todo in items">
-				{{ todo.items }}
-				<div v-if="todo.checked">Checked!</div>
-
-				<button @click="todo.checked = ! todo.checked">Toggle</button>
-			</li>
-		</ul>
-
-		<input type="text" v-model="item">
-		<button @click="items.push(item)" v-bind:value="true">Add Item</button>
+		
+		<input type="text" v-model="price">
+		<div>Tax {{ taxFormatted }}</div>
+		<div>Total {{ totalFormatted }}</div>
 	</div>
 
 	<script>
@@ -24,10 +17,25 @@
 			el: '#app',
 
 			data: {
-				item: '',checked: true,
-                items: [
-					{checked: true}
-				]
+				price: 100,
+			},
+
+			computed: {
+				tax: function(){
+					return this.price * 0.025;
+				},
+
+				taxFormatted: function(){
+					return 'Rp.' + this.tax;
+				},
+
+				total: function(){
+					return parseInt(this.price) + this.tax;
+				},
+
+				totalFormatted: function(){
+					return 'Rp.' + this.total;
+				}
 			}
 		});
 	</script>
