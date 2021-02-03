@@ -1,7 +1,7 @@
 <template>
   <div>
-    <AddTodo/>
-    <Todos/>
+    <AddTodo v-on:add-todo="addTodo"/>
+    <Todos v-on:delete-todo="deleteTodo" v-bind:todos="todos"/>
   </div>
 </template>
 
@@ -12,9 +12,23 @@ import Todos from './components/Todos.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AddTodo,
+    Todos
+  },
+  data(){
+    return{
+      todos:[]
+    }
+  },
+  methods:{
+    addTodo(newTodo){
+      this.todos = [...this.todos,newTodo]
+    },
+    deleteTodo(id){
+      this.todos = this.todos.filter((todo) => todo.id !== id)
+    }
   }
-}
+};
 </script>
 
 <style>
