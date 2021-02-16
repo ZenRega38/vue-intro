@@ -14,6 +14,8 @@
 		<h1>{{message}}</h1>
 		<ul>
 			<li style="list-style-type: none;" v-for="todo in todos"> {{todo.id}}.) {{todo.text}}</li>
+
+			<li v-for="count in count">Moooorrrreeeeeee!!!</li>
 		</ul>
 	</div>
 </body>
@@ -28,7 +30,8 @@
 				{ text: 'Learn Vue', id: 1 },
 				{ text: 'Learn Vue 2', id: 2 },
 				{ text: 'Learn Vue 3', id: 3 }
-			]
+			],
+			count: 100
 		}
 	})
 </script>
