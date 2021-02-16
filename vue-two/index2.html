@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vue Tutor 2 | Directives</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<style>
+		[v-cloak]{
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<!-- get plain string/text -->
+		<h1 v-text="message"></h1>
+
+		<!-- just like adding html -->
+		<h1 v-html="intro"></h1>
+
+		<!-- rendered/renderen't by true/false statement -->
+		<h1 v-show="viewed">You've viewed this page</h1>
+
+		<!-- if else  without javascript(yk) -->
+		<h1 v-if="viewed2">You've viewed this page</h1>
+		<h1 v-else>You've not viewed this page</h1>
+
+		<!-- render just once, can't change through console -->
+		<h1 v-once>{{message}}</h1>
+
+		<!-- reduce flicker to showing raw message, or can give some edit for pre-render(like bg color) -->
+		<h1 v-cloak>{{message}}</h1>
+	</div>
+</body>
+
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+			message: 'Hello Vue World',
+			intro: "Welcome to my web <small>about vue intro tutorial</small>",
+			viewed: false,
+			viewed2: true
+		}
+	})
+</script>
+</html>

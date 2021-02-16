@@ -1,0 +1,14 @@
+*
+{
+	display: block;
+}
+
+.div
+{
+	background: #000;
+	padding: 10px;
+	align-self: center;
+	margin-top: 50vh;
+	margin-right: 50vh;
+	margin-left: 50vh;
+}
