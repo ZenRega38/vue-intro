@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vue Tutor 6 | Event Handling</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<body>
+	<div id="app">
+		<h1>Count: {{count}}</h1>
+		<!-- simplify 'v-on:' to '@' -->
+		<button @click="countUp" class="btn btn-primary">+1</button>
+		<button @click="countDown" class="btn btn-primary">-1</button>
+
+		<h1>{{message}}</h1>
+		<p>
+			Visit: <a :href="url">{{cleanUrl}}</a>
+		</p>
+		<input type="text" class="form-control" v-model="url">
+		<button v-on:click="humanizeUrl" class="btn btn-primary">Humanize Me!</button>
+	</div>
+</body>
+
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+			message: 'Hello Vue World',
+			count: 0,
+			url: "",
+			cleanUrl: ""
+		},
+
+		methods: {
+			countUp: function(){
+				this.count += 1
+			},
+
+			countDown: function(){
+				this.count -= 1
+			},
+
+			humanizeUrl: function(){
+				this.cleanUrl = this.url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+			}
+		}
+	})
+</script>
+</html>
